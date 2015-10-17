@@ -2,6 +2,10 @@
 
 A Node.js client wrapper for IATA's NDC API.
 
+## Compatibility
+
+* Ruby versions: MRI 2.2
+
 ## Installation
 
 Use npm to install from repo
