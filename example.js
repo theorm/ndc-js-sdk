@@ -7,7 +7,7 @@ testData.config[0].APIAuthKey = testData.config[1].APIAuthKey = process.env.API_
 var kronos = new NDC(testData.config[0]),
     usdtravel = new NDC(testData.config[1]);
 
-var message = kronos.messages.AirShopping(testData.AirShopping[1]);
+var message = kronos.messages.AirShopping(testData.AirShopping[3]);
 // var message = usdtravel.messages.FlightPrice(testData.FlightPrice[0]);
 // var message = kronos.messages.SeatAvailability(testData.SeatAvailability[0]);
 // var message = kronos.messages.ServiceList(testData.ServiceList[0]);
