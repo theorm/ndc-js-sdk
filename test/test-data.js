@@ -59,7 +59,7 @@ TestData.config = [
     }
 ];
 TestData.AirShopping = [
-    /* OneWay with multiple pax */
+    /* 0. OneWay with multiple pax */
     {
         pointOfSaleEvent: {
             code: 9,
@@ -99,7 +99,7 @@ TestData.AirShopping = [
             }
         ]
     },
-    /* RoundTrip with Calendar - Direct Flight */
+    /* 1. RoundTrip with Calendar - Direct Flight */
     {
         pointOfSaleEvent: {
             code: 9,
@@ -168,7 +168,7 @@ TestData.AirShopping = [
             }
         ]
     },
-    /* OneWay with all cabin */
+    /* 2. OneWay with all cabin */
     {
         pointOfSaleEvent: {
             code: 9,
@@ -177,20 +177,75 @@ TestData.AirShopping = [
         onds: [{
             flights: [{
                 departure: {
-                    date: new Date('2016-04-03'),
-                    airportCode: 'FRA'
+                    date: new Date('2015-10-20'),
+                    airportCode: 'CDG'
                 },
                 arrival: {
-                    airportCode: 'BCN'
-                }
+                    airportCode: 'FRA'
+                },
+                airline: TestData.config.sender
             }]
         }],
+        cabin: 'C',
         travelers: [
             /* one anonymous adult */
             {
                 anonymous: true,
                 count: 1,
                 type: 'ADT'
+            }
+        ]
+    },
+    /* 3. OneWay with all cabin with recognised traveller */
+    {
+        pointOfSaleEvent: {
+            code: 9,
+            definition: 'Shop'
+        },
+        onds: [{
+            flights: [{
+                departure: {
+                    date: new Date('2015-10-20'),
+                    airportCode: 'CDG'
+                },
+                arrival: {
+                    airportCode: 'FRA'
+                },
+                airline: TestData.config.sender
+            }]
+        }],
+        cabin: 'C',
+        travelers: [
+            /* one regognized adult */
+            {
+                key: 'PAX1',
+                type: 'ADT',
+                residenceCode: 'US',
+                age: {
+                    birthDate: '1989-09-09'
+                },
+                name: {
+                    title: 'MR',
+                    given: 'Mithalesh',
+                    middle: 'Ignatius',
+                    surname: 'Yadav'
+                },
+                contact: {
+                    email: 'mithalesh@jrtechnologies.com',
+                    phone: '9867236088'
+                },
+                // profileID: '123',
+                gender: 'Male',
+                fqtvs: [{
+                    programID: 'Miles and More',
+                    providerID: 'LH',
+                    accountNumber: '992227471658111'
+                }],
+                foids: [{
+                    type: 'PT',
+                    id: '333444666',
+                    Issuer: 'US'
+                }]
             }
         ]
     }
